@@ -6,6 +6,7 @@
 package it.polito.tdp.PremierLeague;
 
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -49,6 +50,16 @@ public class FXMLController {
     @FXML
     void doCreaGrafo(ActionEvent event) {
     	
+    	Match match = cmbMatch.getValue();
+    	
+    	if (match == null) {
+    		txtResult.appendText("Parametro non inseriti");
+			return ;
+		}
+    	
+    	String msg = model.createGraph(match);
+    	txtResult.appendText(msg);
+    	
     }
 
     @FXML
@@ -76,6 +87,7 @@ public class FXMLController {
     	this.model = model;
     	
     	List<Match> matchList = model.getMatchList();
+    	Collections.sort(matchList);
     	cmbMatch.getItems().addAll(matchList);
     }
 }

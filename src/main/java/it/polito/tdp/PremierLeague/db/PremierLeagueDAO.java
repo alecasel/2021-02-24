@@ -111,4 +111,34 @@ public class PremierLeagueDAO {
 		}
 	}
 	
+	public List<Player> getAllVertices(Match match) {
+		
+		String sql = "SELECT a.PlayerID, p.Name "
+				+ "FROM actions a, players p "
+				+ "WHERE MatchID = ? "
+				+ "AND a.PlayerID = p.PlayerID";
+		
+		List<Player> result = new ArrayList<Player>();
+		Connection conn = DBConnect.getConnection();
+
+		try {
+			PreparedStatement st = conn.prepareStatement(sql);
+			st.setInt(1, match.getMatchID());
+			ResultSet res = st.executeQuery();
+			
+			while (res.next()) {
+				Player p = new Player(res.getInt("a.PlayerID"), res.getString("p.Name"));
+				result.add(p);
+			}
+			
+			conn.close();
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
 }
