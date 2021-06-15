@@ -3,6 +3,7 @@ package it.polito.tdp.PremierLeague.model;
 public class Player {
 	Integer playerID;
 	String name;
+	Double delta;
 	
 	public Player(Integer playerID, String name) {
 		super();
@@ -21,6 +22,16 @@ public class Player {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	
+
+	public Double getDelta() {
+		return delta;
+	}
+
+	public void setDelta(Double delta) {
+		this.delta = delta;
 	}
 
 	@Override

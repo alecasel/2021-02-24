@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 
 import it.polito.tdp.PremierLeague.model.Match;
 import it.polito.tdp.PremierLeague.model.Model;
+import it.polito.tdp.PremierLeague.model.Player;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -63,8 +64,9 @@ public class FXMLController {
     }
 
     @FXML
-    void doGiocatoreMigliore(ActionEvent event) {    	
-    	
+    void doGiocatoreMigliore(ActionEvent event) {    
+    	Player best = model.getBestPlayer();
+    	txtResult.appendText(best.getPlayerID() +" - "+ best.getName() +", "+"delta efficienza = "+ best.getDelta());
     }
     
     @FXML

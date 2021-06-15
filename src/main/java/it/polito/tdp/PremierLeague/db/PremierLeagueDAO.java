@@ -146,8 +146,7 @@ public class PremierLeagueDAO {
 	public List<Arco> getArchi(Match match, Map<Integer, Player> playerIdMap) {
 
 		String sql = "SELECT a1.PlayerID, p1.Name, a2.PlayerID, p2.Name, "
-				+ "((a1.totalSuccessfulPassesAll + a1.assists)/a1.timePlayed - "
-				+ "(a2.totalSuccessfulPassesAll + a2.assists)/a2.timePlayed) as peso "
+				+ "((a1.totalSuccessfulPassesAll + a1.assists)/a1.timePlayed - (a2.totalSuccessfulPassesAll + a2.assists)/a2.timePlayed) as peso "
 				+ "FROM actions a1, actions a2, players p1, players p2 "
 				+ "WHERE a1.PlayerID > a2.PlayerID "
 				+ "AND a1.MatchID = a2.MatchID "
