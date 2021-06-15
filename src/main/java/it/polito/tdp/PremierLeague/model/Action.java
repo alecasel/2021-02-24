@@ -14,6 +14,7 @@ public class Action {
 	Integer assists;
 	Integer totalFoulsConceded;
 	Integer offsides;
+	Double efficienza;
 	
 	public Action(Integer playerID, Integer matchID, Integer teamID, Integer starts, Integer goals, Integer timePlayed,
 			Integer redCards, Integer yellowCards, Integer totalSuccessfulPassesAll, Integer totalUnsuccessfulPassesAll,
@@ -112,6 +113,18 @@ public class Action {
 	}
 	public void setOffsides(Integer offsides) {
 		this.offsides = offsides;
+	}
+	
+
+
+	public Double getEfficienza() {
+		Double efficienza = (double) ((totalSuccessfulPassesAll+assists)/timePlayed);
+		return efficienza;
+	}
+
+
+	public void setEfficienza(Double efficienza) {
+		this.efficienza = efficienza;
 	}
 
 
