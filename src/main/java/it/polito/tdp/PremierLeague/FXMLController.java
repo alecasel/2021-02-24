@@ -6,6 +6,7 @@
 package it.polito.tdp.PremierLeague;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.PremierLeague.model.Match;
@@ -73,5 +74,8 @@ public class FXMLController {
     
     public void setModel(Model model) {
     	this.model = model;
+    	
+    	List<Match> matchList = model.getMatchList();
+    	cmbMatch.getItems().addAll(matchList);
     }
 }
